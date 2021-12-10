@@ -1,27 +1,11 @@
-import React from "react"
-import { GetStaticProps } from "next"
-import Layout from "../components/Layout"
-import Post, { PostProps } from "../components/Post"
-
-export const getStaticProps: GetStaticProps = async () => {
-  const feed = [
-    {
-      id: 1,
-      title: "Prisma is the perfect ORM for Next.js",
-      content: "[Prisma](https://github.com/prisma/prisma) and Next.js go _great_ together!",
-      published: false,
-      author: {
-        name: "Nikolas Burk",
-        email: "burk@prisma.io",
-      },
-    },
-  ]
-  return { props: { feed } }
-}
+import React from "react";
+import { GetStaticProps } from "next";
+import Layout from "../components/Layout";
+import Post, { PostProps } from "../components/Post";
 
 type Props = {
-  feed: PostProps[]
-}
+  feed: PostProps[];
+};
 
 const Blog: React.FC<Props> = (props) => {
   return (
@@ -40,10 +24,11 @@ const Blog: React.FC<Props> = (props) => {
         .post {
           background: white;
           transition: box-shadow 0.1s ease-in;
+          cursor: pointer;
         }
 
         .post:hover {
-          box-shadow: 1px 1px 3px #aaa;
+          box-shadow: 10px 10px 30px #ddd;
         }
 
         .post + .post {
@@ -51,7 +36,24 @@ const Blog: React.FC<Props> = (props) => {
         }
       `}</style>
     </Layout>
-  )
-}
+  );
+};
 
-export default Blog
+export default Blog;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const feed = [
+    {
+      id: 1,
+      title: "Prisma is the perfect ORM for Next.js",
+      content:
+        "[Prisma](https://github.com/prisma/prisma) and Next.js go _great_ together!",
+      published: false,
+      author: {
+        name: "Nikolas Burk",
+        email: "burk@prisma.io",
+      },
+    },
+  ];
+  return { props: { feed } };
+};
