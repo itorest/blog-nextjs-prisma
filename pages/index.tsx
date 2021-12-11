@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import Layout from '../components/Layout';
 import Head from 'next/head';
 
@@ -48,7 +48,7 @@ const Blog: React.FC<Props> = (props) => {
 
 export default Blog;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   // const feed = [
   //   {
   //     id: 1,
